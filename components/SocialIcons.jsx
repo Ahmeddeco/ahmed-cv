@@ -8,7 +8,7 @@ const SocialIcons = () => {
 			{socials.map(({ icon, title, url }) => {
 				return (
 					<Link href={url} key={title} target='_blank'>
-						<Image src={icon} alt={title} width={24} height={24} />
+						<div className='text-white md:text-black text-4xl '>{icon}</div>
 					</Link>
 				)
 			})}

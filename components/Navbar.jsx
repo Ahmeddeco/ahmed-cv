@@ -1,31 +1,30 @@
 'use client'
 
-import { links, socials } from '@/constant'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import NavLinks from './NavLinks'
 import SocialIcons from './SocialIcons'
+import { burgerMenu, closeMenu } from '@/constant'
 
 const Navbar = () => {
 	const [open, setOpen] = useState(false)
 
 	return (
-		<header className='h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48'>
+		<header className=' flex items-center justify-between container h-[72px]'>
 			{/* ---------------------------------- logo ---------------------------------- */}
-			<div className=''>
+			<div className='w-1/3'>
 				<Link
 					href='/'
-					className='text-sm bg-black rounded-md p-2 font-semibold flex items-center justify-center'
+					className='text-sm bg-black rounded-md p-2 font-semibold flex items-center justify-center w-fit'
 				>
-					<span className='text-white mr-1 font-black px-1'>AHMED</span>
+					<span className='text-white mr-1 font-black px-1 '>AHMED</span>
 					<span className='w-12 rounded bg-white text-black px-1 font-semibold'>
 						.Dev
 					</span>
 				</Link>
 			</div>
 			{/* ------------------------------ dektop links ------------------------------ */}
-			<nav className='hidden md:flex gap-4'>
+			<nav className='hidden md:flex gap-4 w-1/3'>
 				<NavLinks />
 			</nav>
 			{/* --------------------------- dektop social icons -------------------------- */}
@@ -36,12 +35,14 @@ const Navbar = () => {
 			<nav className='md:hidden'>
 				{/* ------------------------------ menu button ----------------------------- */}
 				<button
-					className='flex flex-col w-10 h-8 justify-between z-50 relative'
+					className='flex flex-col w-10 h-8 justify-between z-50 relative '
 					onClick={() => setOpen(!open)}
 				>
-					<div className='w-10 h-1 bg-white rounded'></div>
-					<div className='w-10 h-1 bg-white rounded'></div>
-					<div className='w-10 h-1 bg-white rounded'></div>
+					{!open ? (
+						<div className='text-2xl text-black'>{burgerMenu} </div>
+					) : (
+						<div className='text-2xl text-white'>{closeMenu} </div>
+					)}
 				</button>
 				{/* -------------------------------- menu list ------------------------------- */}
 				{open && (
@@ -49,7 +50,7 @@ const Navbar = () => {
 						{/* ------------------------------ mobile links ------------------------------ */}
 						<NavLinks />
 						{/* --------------------------- mobile social icons -------------------------- */}
-						<div className='flex items-center justify-center gap-4 '>
+						<div className='flex items-center justify-center gap-4 w-1/3'>
 							<SocialIcons />
 						</div>
 					</nav>
