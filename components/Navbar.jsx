@@ -50,7 +50,7 @@ const Navbar = () => {
 						{/* ------------------------------ mobile links ------------------------------ */}
 						<NavLinks />
 						{/* --------------------------- mobile social icons -------------------------- */}
-						<div className='flex items-center justify-center gap-4 w-1/3'>
+						<div className='flex items-center justify-center gap-4 w-1/3 '>
 							<SocialIcons />
 						</div>
 					</nav>
